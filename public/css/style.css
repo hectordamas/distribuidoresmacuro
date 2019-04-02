@@ -1,0 +1,16 @@
+body{
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #fff !important;
+}
+.navbar-laravel{
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.07) !important;
+}
+.nav-item .nav-link{
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: black !important;
+}
+.nav-item .nav-link:hover{
+  color: #8b0000 !important;
+}
