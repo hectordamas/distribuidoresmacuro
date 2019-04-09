@@ -22,10 +22,10 @@ class CreateProductsTable extends Migration
             $table->string('image');
             $table->longText('details')->nullable();
             $table->string('sku')->nullable();
-            $table->float('price')->nullable();
-            $table->integer('stock')->nullable();
-            $table->float('measure')->nullable();
-            $table->float('measure2')->nullable();
+            $table->float('price', 200, 2)->nullable();
+            $table->bigInteger('stock')->nullable();
+            $table->float('measure', 200, 2)->nullable();
+            $table->float('measure2', 200, 2)->nullable();
         });
     }
 

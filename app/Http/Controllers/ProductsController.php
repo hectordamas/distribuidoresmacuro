@@ -35,8 +35,16 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+            $fileName = "/images/".$name;
+          }
+
         Product::create([
          'name' => $request->input('name'),
+         'image' => $fileName,
          'operation' => $request->input('operation'),
          'category' => $request->input('category'),
          'details' => $request->input('details'),
@@ -46,6 +54,8 @@ class ProductsController extends Controller
          'measure' => $request->input('measure'),
          'measure2' => $request->input('measure2'),
         ]);
+
+        return redirect()->back();
     }
 
     /**

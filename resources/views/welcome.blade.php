@@ -84,13 +84,14 @@
           <h3 style="margin-left:15px; font-family:'Source Sans Pro'; font-weight:600;">¿DESEAS REGISTRARTE?</h3>
         </div>
         <br>
-        <form action="" method="post">
+        <form action="/users/mail" method="post">
+          @csrf
           <div class="row">
             <div class="form-group col-md-6">
               <input type="text" class="form-control" placeholder="Nombre De La Empresa" required name="company">
             </div>
             <div class="form-group col-md-6">
-              <input type="text" class="form-control" placeholder="Teléfono" required name="telephone">
+              <input type="number" class="form-control" placeholder="Teléfono" required name="telephone">
             </div>
           </div>
 
@@ -99,7 +100,7 @@
               <input type="text" class="form-control" placeholder="Nombre" required name="name">
             </div>
             <div class="form-group col-md-6">
-              <input type="text" class="form-control" placeholder="Celular" required name="cellphone">
+              <input type="number" class="form-control" placeholder="Celular" required name="cellphone">
             </div>
           </div>
 
@@ -108,7 +109,7 @@
               <input type="email" class="form-control" placeholder="Correo Electrónico" required name="email">
             </div>
             <div class="form-group col-md-6">
-              <input type="text" class="form-control" placeholder="Ciudad" required name="Ciudad">
+              <input type="text" class="form-control" placeholder="Ciudad" required name="city">
             </div>
           </div>
 
@@ -128,6 +129,11 @@
 
         </form>
       </div>
+
+      @if(session()->has('message'))
+       @include('alerts.modal')
+      @endif
+
 
     </div>
   </div>

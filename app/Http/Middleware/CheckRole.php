@@ -15,6 +15,10 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(auth()->user()->role == "admin"){
+            return $next($request);
+        }
+        redirect('/');
+
     }
 }

@@ -21,7 +21,7 @@
                 <select class="form-control" name="operation">
                   <option value="">Selecciona una Operación</option>
                   <option value="Importar">Importar</option>
-                  <option value="Producto En Stock">Producto En Stock</option>
+                  <option value="Stock">Producto En Stock</option>
                 </select>
               </div>
               <div class="form-group col-md-4">

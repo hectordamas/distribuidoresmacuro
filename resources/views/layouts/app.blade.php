@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -45,17 +46,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">Ingresa</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">Regístrate</a>
-                                </li>
-                            @endif
                         @else
-                            @if(Auth::user()->rol == "Administrador")
+
+                            @if(Auth::user()->rol == "admin")
                               <li class="nav-item">
                                 <a href="/products/create" class="nav-link">Panel de Administración</a>
                               </li>
                             @endif
+                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
