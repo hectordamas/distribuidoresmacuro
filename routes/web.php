@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/operation/{typeOperation}', 'OperationController@findOperation');
 
-    Route::middleware('auth')->group(function(){
+    Route::middleware(['auth', 'role'])->group(function(){
         Route::resource('products', 'ProductsController');
     });
 });

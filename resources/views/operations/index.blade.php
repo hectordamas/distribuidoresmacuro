@@ -3,8 +3,9 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
+        <div class="col-md-8 row">
         @forelse ($products as $product)
-        <div class="card" style="width:18rem;">
+          <div class="card product">
             <a href="#">
               <img class="card-img-top" src="{{$product->image}}" alt="{{$product->name}}"/>
             </a>
@@ -32,7 +33,7 @@
                     <td colspan="2">
                       <div class="d-flex form-store" style="justify-content:center;">
                           <input type="number" min="0" class="form-control rounded-0 input-store" placeholder="Cantidad..."  id="input-qty{{$product->id}}"/>
-                          <button class="btn btn-primary" data-id="{{$product->id}}">Añadir</button>
+                          <button class="btn btn-primary rounded-0" data-id="{{$product->id}}">Añadir</button>
                       </div>
                     </td>
                   </tr>
@@ -54,6 +55,12 @@
             <h2>No hay ningún producto en esta sección aún</h2>
         </div>
         @endforelse
+      </div>
+
+      <div class="col-md-4" style="background:indianred;">
+
+      </div>
+
     </div>
 </div>
 @endsection

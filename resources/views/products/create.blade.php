@@ -74,6 +74,9 @@
         </div>
       </div>
     </div>
+    @if(session()->has('message'))
+      @include('alerts.modal')
+    @endif
   </div>
 </div>
 @endsection

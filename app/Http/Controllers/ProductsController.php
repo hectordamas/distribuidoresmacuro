@@ -55,7 +55,7 @@ class ProductsController extends Controller
          'measure2' => $request->input('measure2'),
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Se ha creado el producto de forma correcta');
     }
 
     /**
