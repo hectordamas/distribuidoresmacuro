@@ -10,7 +10,8 @@ class OperationController extends Controller
     public function findOperation($typeOperation){
         $products = Product::where('operation', $typeOperation)->get();
         return view('operations.index', [
-            'products' => $products
+            'products' => $products,
+            'typeOperation' => $typeOperation
         ]);
     }
 }

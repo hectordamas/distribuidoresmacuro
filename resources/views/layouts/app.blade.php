@@ -24,6 +24,14 @@
 </head>
 <body>
     <div id="app">
+        <div class="spinner-container">
+            <div class="spinner text-center">
+                <i class="fas fa-spinner" id="spinner"></i>
+                <br>
+                Procesando Petición...
+            </div>
+        </div>
+
         <nav class="navbar navbar-expand-lg navbar-light navbar-laravel sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="/home">
@@ -68,6 +76,12 @@
                                         @csrf
                                     </form>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/cart" class="nav-link">
+                                    <span class="badge badge-danger count">0</span>
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a>
                             </li>
                         @endguest
                     </ul>

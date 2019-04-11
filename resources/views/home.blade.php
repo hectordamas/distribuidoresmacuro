@@ -7,7 +7,7 @@
             <a href="/operation/Importar">
                 <div class="overlay-home">
                     <div class="subtitle-home row d-flex justify-content-center">
-                       IMPORTAR
+                       Importar
                     </div>
                     <div class="row d-flex justify-content-center">
                         <i class="fas fa-truck-moving icons-home"></i>
@@ -19,7 +19,7 @@
             <a href="/operation/Stock">
                 <div class="overlay-home">
                      <div class="subtitle-home row d-flex justify-content-center">
-                         ORDENAR PRODUCTOS DE NUESTRO INVENTARIO
+                         Ordenar Productos de Nuestro Inventario
                      </div>
                     <div class="row d-flex justify-content-center">
                         <i class="fas fa-shopping-cart icons-home"></i>

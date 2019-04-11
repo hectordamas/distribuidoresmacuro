@@ -22,7 +22,7 @@ Route::post('/users/mail', 'UsersController@mail');
 Route::middleware('auth')->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/operation/{typeOperation}', 'OperationController@findOperation');
-
+    Route::resource('cart', 'CartController');
     Route::middleware(['auth', 'role'])->group(function(){
         Route::resource('products', 'ProductsController');
     });
