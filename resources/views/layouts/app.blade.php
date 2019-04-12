@@ -79,7 +79,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/cart" class="nav-link">
-                                    <span class="badge badge-danger count">0</span>
+                                    <span class="badge badge-danger count">{{Cart::getContent()->count()}}</span>
                                     <i class="fas fa-shopping-cart"></i>
                                 </a>
                             </li>

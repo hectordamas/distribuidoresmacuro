@@ -15,7 +15,10 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $products = Cart::getContent();
+        return view('cart.index',[
+            'products' => $products 
+        ]);
     }
 
     /**
@@ -45,10 +48,10 @@ class CartController extends Controller
             'stock' => $product->stock,
             'measure' => $product->measure
         ]);
-
-        return reponse()->json([
+        $cartCollection = Cart::getContent();
+        return response()->json([
             'product' => $product,
-            'count' => Cart::count(),
+            'count' => $cartCollection->count(),
         ]);
     }
 
