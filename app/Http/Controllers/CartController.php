@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Cart;
+use App\Product;
 
 class CartController extends Controller
 {
@@ -34,7 +36,20 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::find($request->id);
+        Cart::add($product->id, $product->name, $product->price, $request->qty, [
+            'operation' => $product->operation,
+            'category' => $product->category,
+            'sku' => $product->sku,
+            'price' => $product->price,
+            'stock' => $product->stock,
+            'measure' => $product->measure
+        ]);
+
+        return reponse()->json([
+            'product' => $product,
+            'count' => Cart::count(),
+        ]);
     }
 
     /**

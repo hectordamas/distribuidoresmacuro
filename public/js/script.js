@@ -24,4 +24,4 @@ $('.añadir').on('click', function(){
             $('.spinner-container').css('display', 'none');
         }
     });
-})
+});
