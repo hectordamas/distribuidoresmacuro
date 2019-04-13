@@ -26,7 +26,7 @@
                     <tbody style="font-size:15px;">
                       <tr>
                         <td><strong>Precio:</strong></td>
-                        <td style="text-align:right;">{{number_format($product->price,2,",",".")}} $</td>
+                        <td style="text-align:right;">{{number_format($product->price,2,".",",")}} $</td>
                       </tr>
                       <tr>
                         <td><strong>Disponibilidad:</strong></td>

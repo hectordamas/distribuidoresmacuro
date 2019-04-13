@@ -15,28 +15,34 @@ class CartController extends Controller
      */
     public function index()
     {
-        $products = Cart::getContent();
+        $items = Cart::getContent();
+        $countImport = 0;
+        $countStock = 0;
+        $quantity = 0;
+        $totalStock = 0;
+        $totalImport = 0;
+        foreach($items as $item){
+            if($item->attributes['operation'] == 'Importar'){
+                $countImport = $countImport + $item->quantity;
+                $totalImport = $totalImport + ($item->attributes['price'] * $item->quantity);
+            }
+            if($item->attributes['operation'] == 'Stock'){
+                $countStock = $countStock + $item->quantity;
+                $totalStock = $totalStock + ($item->attributes['price'] * $item->quantity);
+            }
+            $quantity = $quantity + $item->quantity;
+        }
         return view('cart.index',[
-            'products' => $products 
+            'products' => $items,
+            'count' => $items->count(),
+            'countStock' => $countStock,
+            'countImport' => $countImport,
+            'totalStock' =>  number_format($totalStock, 2, '.', ','),
+            'totalImport' => number_format($totalImport, 2, '.', ','),
+            'quantity' => $quantity
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $product = Product::find($request->id);
@@ -46,57 +52,63 @@ class CartController extends Controller
             'sku' => $product->sku,
             'price' => $product->price,
             'stock' => $product->stock,
-            'measure' => $product->measure
+            'measure' => $product->measure2
         ]);
-        $cartCollection = Cart::getContent();
+        $items = Cart::getContent();
+        $countImport = 0;
+        $countStock = 0;
+        $totalMeasure = 0;
+        $totalStock = 0;
+        $totalImport = 0;
+        foreach($items as $item){
+            if($item->attributes['operation'] == 'Importar'){
+                $countImport = $countImport + $item->quantity;
+                $totalImport = $totalImport + ($item->attributes['price'] * $item->quantity);
+            }
+            if($item->attributes['operation'] == 'Stock'){
+                $countStock = $countStock + $item->quantity;
+                $totalStock = $totalStock + ($item->attributes['price'] * $item->quantity);
+            }
+            if($item->attributes['operation'] == 'Importar'){
+                $totalMeasure = $totalMeasure + ($item->attributes['measure'] * $item->quantity);
+            }
+        }
+        $fillPercent = round(($totalMeasure * 75.900) / 100);
         return response()->json([
             'product' => $product,
-            'count' => $cartCollection->count(),
+            'price' => number_format($product->price, 2, '.', ','),
+            'quantity' => $request->qty,
+            'count' => $items->count(),
+            'countStock' => $countStock,
+            'countImport' => $countImport,
+            'fillPercent' => $fillPercent,
+            'totalStock' =>  number_format($totalStock, 2, '.', ','),
+            'totalImport' => number_format($totalImport, 2, '.', ','),
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function edit(Request $request, $id){
+        $item = Cart::get($id);
+        return response()->json([
+            'item' => $item
+        ]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        Cart::update($id, [
+            'quantity' => [
+                'relative' => false,
+                'value' => $request->input('quantity')
+            ],
+        ]);
+        return redirect()->back()->with('message', 'Pedido modificado!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+        return redirect()->back()->with('message', 'Producto Eliminado');
     }
 }

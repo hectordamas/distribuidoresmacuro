@@ -24,14 +24,8 @@
 </head>
 <body>
     <div id="app">
-        <div class="spinner-container">
-            <div class="spinner text-center">
-                <i class="fas fa-spinner" id="spinner"></i>
-                <br>
-                Procesando Petición...
-            </div>
-        </div>
-
+        @include('alerts.spinner')
+        @include('alerts.cart.edit')
         <nav class="navbar navbar-expand-lg navbar-light navbar-laravel sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="/home">
@@ -58,10 +52,19 @@
 
                             @if(Auth::user()->rol == "admin")
                               <li class="nav-item">
-                                <a href="/products/create" class="nav-link">Panel de Administración</a>
+                                <a href="/products/create" class="nav-link">Administrar</a>
                               </li>
                             @endif
-                            
+                            <li class="nav-item dropdown">
+                                <a href="/operation/Stock" class="nav-link">Inventario</a>
+                                <div class="dropdown-menu">
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="/operation/Importar" class="nav-link">Importar</a>
+                                <div class="dropdown-menu">
+                                </div>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -79,7 +82,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/cart" class="nav-link">
-                                    <span class="badge badge-danger count">{{Cart::getContent()->count()}}</span>
+                                    <span class="badge badge-danger count" id="count-bar">{{Cart::getTotalQuantity()}}</span>
                                     <i class="fas fa-shopping-cart"></i>
                                 </a>
                             </li>
