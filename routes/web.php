@@ -22,9 +22,13 @@ Route::post('/users/mail', 'UsersController@mail');
 Route::middleware('auth')->group(function(){
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/operation/{typeOperation}', 'OperationController@findOperation');
+    Route::get('/operation/{typeOperation}/category/{category}', 'OperationController@findOperationAndCategory');
+    Route::get('/clear/cart', 'CartOperationsController@clear');
+    Route::post('/mail/cart', 'CartOperationsController@mail');
     Route::resource('cart', 'CartController');
     Route::middleware(['auth', 'role'])->group(function(){
         Route::resource('products', 'ProductsController');
+        Route::get('/users', 'UsersController@index');
     });
 });
 

@@ -37,8 +37,8 @@ class CartController extends Controller
             'count' => $items->count(),
             'countStock' => $countStock,
             'countImport' => $countImport,
-            'totalStock' =>  number_format($totalStock, 2, '.', ','),
-            'totalImport' => number_format($totalImport, 2, '.', ','),
+            'totalStock' =>  $totalStock,
+            'totalImport' => $totalImport,
             'quantity' => $quantity
         ]);
     }
@@ -78,7 +78,7 @@ class CartController extends Controller
             'product' => $product,
             'price' => number_format($product->price, 2, '.', ','),
             'quantity' => $request->qty,
-            'count' => $items->count(),
+            'count' => Cart::getTotalQuantity(),
             'countStock' => $countStock,
             'countImport' => $countImport,
             'fillPercent' => $fillPercent,

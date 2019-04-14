@@ -28,10 +28,12 @@
                         <td><strong>Precio:</strong></td>
                         <td style="text-align:right;">{{number_format($product->price,2,".",",")}} $</td>
                       </tr>
+                      @if($product->operation == 'Stock')
                       <tr>
                         <td><strong>Disponibilidad:</strong></td>
-                        <td style="text-align:right;">{{$product->stock}}</td>
+                        <td style="text-align:right;"><span id="stock{{$product->id}}">{{$product->stock}}</span></td>
                       </tr>
+                      @endif
                       @if($product->stock > 0)
                       <tr>
                         <td colspan="2">

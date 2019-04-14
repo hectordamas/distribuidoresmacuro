@@ -13,6 +13,10 @@ body{
 .nav-item .nav-link:hover{
   color: #8b0000 !important;
 }
+.dropdown:hover > .dropdown-menu {
+  display: block;
+  z-index: 2000;
+}
 .btn-primary{
   background-color:#8b0000; 
   border-color:#8b0000; 
@@ -61,6 +65,17 @@ body{
 .product{
   width:17.5rem;
 }
+.cartMessage-container{
+  position: fixed;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .edit-container{
   position: fixed;
   background: rgba(0,0,0,0.8);
@@ -70,6 +85,45 @@ body{
   display:none;
   justify-content: center;
   align-items: center;
+}
+.complete2-container{
+  position: fixed;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display:none;
+}
+.stock-container{
+  position: fixed;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display:none;
+}
+.complete-container{
+  position: fixed;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+}
+.percent-container{
+  position: fixed;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display:none;
 }
 .spinner-container{
   position: fixed;

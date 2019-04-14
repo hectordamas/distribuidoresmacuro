@@ -120,7 +120,7 @@
                                 </tbody>
                             </table>
                             @if(Cart::getContent()->count() > 0)
-                                <form action="">
+                                <form action="/mail/cart" method="POST">
                                     @csrf
                                     <input type="submit" class="btn btn-primary" value="Enviar Pedido">
                                 </form>

@@ -14,7 +14,11 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::orderBy('id', 'desc')->get();
+
+        return view('products.index', [
+            'products' => $products 
+        ]);
     }
 
     /**
@@ -58,48 +62,45 @@ class ProductsController extends Controller
         return redirect()->back()->with('message', 'Se ha creado el producto de forma correcta');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+
+        return view('products.edit', [
+            'product' => $product
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function update(Request $request, $id)
     {
-        //
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+            $fileName = "/images/".$name;
+          }    
+        $product = Product::find($id);
+        $product->name = $request->input('name');
+        $product->image = $fileName;
+        $product->category = $request->input('category');
+        $product->operation = $request->input('operation');
+        $product->price = $request->input('price');
+        $product->sku = $request->input('sku');
+        $product->stock = $request->input('stock');
+        $product->details = $request->input('details');
+        $product->measure = $request->input('measure');
+        $product->measure2 = $request->input('measure2');
+        $product->save();
+        return redirect('/products')->with('message', 'Producto Actualizado!');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect()->back()->with('message', 'Producto Eliminado');
     }
 }

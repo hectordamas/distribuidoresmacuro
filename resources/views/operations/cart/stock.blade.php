@@ -18,3 +18,6 @@
         <span class="badge badge-dark" id="totalStock">{{number_format($totalStock,2,'.', ',')}} $</span>
     </div>
 </div>
+<div class="row">
+    @include('component.confirmAndClear')
+</div>

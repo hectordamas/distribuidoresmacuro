@@ -19,13 +19,15 @@
         </tr>
         </thead>
         <tbody>
-          <td>{!!$company!!}</td>
-          <td>{!!$telephone!!}</td>
-          <td>{!!$name!!}</td>
-          <td>{!!$cellphone!!}</td>
-          <td>{!!$email!!}</td>
-          <td>{!!$city!!}</td>
-          <td>{!!$rif!!}</td>
+          <tr>
+              <td>{!!$company!!}</td>
+              <td>{!!$telephone!!}</td>
+              <td>{!!$name!!}</td>
+              <td>{!!$cellphone!!}</td>
+              <td>{!!$email!!}</td>
+              <td>{!!$city!!}</td>
+              <td>{!!$rif!!}</td>
+          </tr>
         </tbody>
     </table>
 

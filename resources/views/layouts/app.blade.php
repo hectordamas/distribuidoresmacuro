@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer></script>
     <script src="{{ asset('js/script.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -19,6 +20,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
@@ -26,6 +28,14 @@
     <div id="app">
         @include('alerts.spinner')
         @include('alerts.cart.edit')
+        @include('alerts.50percent')
+        @include('alerts.stock')
+        @include('alerts.cartMessage')
+        @if(isset($typeOperation))
+            @if($typeOperation == 'Importar')
+                @include('alerts.100percent')            
+            @endif
+        @endif
         <nav class="navbar navbar-expand-lg navbar-light navbar-laravel sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="/home">
@@ -58,11 +68,35 @@
                             <li class="nav-item dropdown">
                                 <a href="/operation/Stock" class="nav-link">Inventario</a>
                                 <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/operation/Stock/category/Neumaticos">
+                                        Neumáticos
+                                    </a>
+                                    <a class="dropdown-item" href="/operation/Stock/category/Bateria">
+                                        Batería
+                                    </a>
+                                    <a class="dropdown-item" href="/operation/Stock/category/Filtro">
+                                        Filtro
+                                    </a>
+                                    <a class="dropdown-item" href="/operation/Stock/category/Camara-de-Aire">
+                                        Cámara de Aire
+                                    </a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a href="/operation/Importar" class="nav-link">Importar</a>
                                 <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="/operation/Importar/category/Neumaticos">
+                                        Neumáticos
+                                    </a>
+                                    <a class="dropdown-item" href="/operation/Importar/category/Bateria">
+                                        Batería
+                                    </a>
+                                    <a class="dropdown-item" href="/operation/Importar/category/Filtro">
+                                        Filtro
+                                    </a>
+                                    <a class="dropdown-item" href="/operation/Importar/category/Camara-de-Aire">
+                                        Cámara de Aire
+                                    </a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">

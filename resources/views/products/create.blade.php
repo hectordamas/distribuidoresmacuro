@@ -27,10 +27,10 @@
               <div class="form-group col-md-4">
                 <select class="form-control" name="category">
                   <option value="">Selecciona una Categoría</option>
-                  <option value="Neumáticos">Neumáticos</option>
-                  <option value="Batería">Batería</option>
+                  <option value="Neumaticos">Neumáticos</option>
+                  <option value="Bateria">Batería</option>
                   <option value="Filtro">Filtro</option>
-                  <option value="Cámara de Aire">Cámara de Aire</option>
+                  <option value="Camara-de-Aire">Cámara de Aire</option>
                 </select>
               </div>
             </div>
