@@ -39,10 +39,12 @@
                                             <label for="">Categoria</label>
                                       <select class="form-control" name="category">
                                         <option value="{{$product->category}}">{{$product->category}}</option>                                        
-                                        <option value="Neumáticos">Neumáticos</option>
-                                        <option value="Batería">Batería</option>
+                                        <option value="Neumaticos">Neumáticos para Carros</option>
+                                        <option value="Neumaticos-para-Gandola">Neumáticos para Gandola</option>
+                                        <option value="Neumaticos-para-Moto">Neumáticos para Moto</option>
+                                        <option value="Bateria">Batería</option>
                                         <option value="Filtro">Filtro</option>
-                                        <option value="Cámara de Aire">Cámara de Aire</option>
+                                        <option value="Camara-de-Aire">Cámara de Aire</option>
                                       </select>
                                     </div>
                                 </div>
@@ -67,7 +69,7 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                 <label for="">Precio</label>
-                                  <input value="{{$product->price}}" placeholder="Precio" type="number" name="price" id="price" class="form-control">
+                                  <input value="{{$product->price}}" step="any" placeholder="Precio" type="number" name="price" step=".001" id="price" class="form-control">
                                 </div>
                                 <div class="form-group col-md-4">
                                         <label for="">Stock</label>
@@ -77,11 +79,11 @@
                               <div class="row">
                                 <div class="form-group col-md-6">
                                         <label for="">Medida interna</label>
-                                  <input value="{{$product->measure}}" placeholder="Medida para Cliente" type="number" name="measure" id="measure" class="form-control">
+                                  <input value="{{$product->measure}}" step="any" placeholder="Medida para Cliente" type="number" step=".001" name="measure" id="measure" class="form-control">
                                 </div>
                                 <div class="form-group col-md-6">
                                         <label for="">Medida para el cliente</label>
-                                  <input value="{{$product->measure2}}" placeholder="Medida para Container (metros cuadrados)" type="number" name="measure2" id="measure2" class="form-control">
+                                  <input value="{{$product->measure2}}"step="any"  placeholder="Medida para Container (metros cúbicos)" step=".001" type="number" name="measure2" id="measure2" class="form-control">
                                 </div>
                               </div>
                               <div class="row">

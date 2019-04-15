@@ -28,12 +28,11 @@
                         <td><strong>Precio:</strong></td>
                         <td style="text-align:right;">{{number_format($product->price,2,".",",")}} $</td>
                       </tr>
-                      @if($product->operation == 'Stock')
+                  @if($product->operation == 'Stock')
                       <tr>
                         <td><strong>Disponibilidad:</strong></td>
                         <td style="text-align:right;"><span id="stock{{$product->id}}">{{$product->stock}}</span></td>
                       </tr>
-                      @endif
                       @if($product->stock > 0)
                       <tr>
                         <td colspan="2">
@@ -54,6 +53,18 @@
                         </td>
                       </tr>
                       @endif
+                    @else
+                    <tr>
+                      <td colspan="2">
+                        <div class="d-flex form-store" style="justify-content:center;">
+                            <input type="number" min="0" class="form-control rounded-0 input-store" placeholder="Cantidad..."  id="input-qty{{$product->id}}"/>
+                            <button class="btn btn-primary añadir rounded-0" data-id="{{$product->id}}">
+                                <i class="fas fa-plus"></i> Añadir                      
+                            </button>
+                        </div>
+                      </td>
+                    </tr>
+                    @endif
                     </tbody>
                   </table>
               </div><!--cardbody-->

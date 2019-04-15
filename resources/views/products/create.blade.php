@@ -27,7 +27,9 @@
               <div class="form-group col-md-4">
                 <select class="form-control" name="category">
                   <option value="">Selecciona una Categoría</option>
-                  <option value="Neumaticos">Neumáticos</option>
+                  <option value="Neumaticos">Neumáticos para Carros</option>
+                  <option value="Neumaticos-para-Gandola">Neumáticos para Gandola</option>
+                  <option value="Neumaticos-para-Moto">Neumáticos para Moto</option>
                   <option value="Bateria">Batería</option>
                   <option value="Filtro">Filtro</option>
                   <option value="Camara-de-Aire">Cámara de Aire</option>
@@ -51,7 +53,7 @@
                 <input placeholder="SKU" type="number" name="sku" id="sku" class="form-control">
               </div>
               <div class="form-group col-md-4">
-                <input placeholder="Precio" type="number" name="price" id="price" class="form-control">
+                <input placeholder="Precio" type="number" step="any" name="price" id="price" class="form-control">
               </div>
               <div class="form-group col-md-4">
                 <input placeholder="Disponibilidad" type="number" name="stock" id="stock" class="form-control">
@@ -59,10 +61,10 @@
             </div>
             <div class="row">
               <div class="form-group col-md-6">
-                <input placeholder="Medida para Cliente" type="number" name="measure" id="measure" class="form-control">
+                <input placeholder="Medida para Cliente" step="any" type="number" name="measure" id="measure" class="form-control">
               </div>
               <div class="form-group col-md-6">
-                <input placeholder="Medida para Container (metros cuadrados)" type="number" name="measure2" id="measure2" class="form-control">
+                <input placeholder="Medida para Container (metros cúbicos)" step="any" type="number" name="measure2" id="measure2" class="form-control">
               </div>
             </div>
             <div class="row">

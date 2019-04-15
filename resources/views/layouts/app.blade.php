@@ -69,7 +69,13 @@
                                 <a href="/operation/Stock" class="nav-link">Inventario</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="/operation/Stock/category/Neumaticos">
-                                        Neumáticos
+                                        Neumáticos para Carros
+                                    </a>
+                                    <a class="dropdown-item" href="/operation/Stock/category/Neumaticos-para-Gandola">
+                                        Neumáticos para Gandola
+                                    </a>
+                                    <a class="dropdown-item" href="/operation/Stock/category/Neumaticos-para-Moto">
+                                        Neumáticos para Moto
                                     </a>
                                     <a class="dropdown-item" href="/operation/Stock/category/Bateria">
                                         Batería
@@ -86,16 +92,13 @@
                                 <a href="/operation/Importar" class="nav-link">Importar</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="/operation/Importar/category/Neumaticos">
-                                        Neumáticos
+                                        Neumáticos para Carros
                                     </a>
-                                    <a class="dropdown-item" href="/operation/Importar/category/Bateria">
-                                        Batería
+                                    <a class="dropdown-item" href="/operation/Importar/category/Neumaticos-para-Gandola">
+                                        Neumáticos para Gandola
                                     </a>
-                                    <a class="dropdown-item" href="/operation/Importar/category/Filtro">
-                                        Filtro
-                                    </a>
-                                    <a class="dropdown-item" href="/operation/Importar/category/Camara-de-Aire">
-                                        Cámara de Aire
+                                    <a class="dropdown-item" href="/operation/Importar/category/Neumaticos-para-Moto">
+                                        Neumáticos para Moto
                                     </a>
                                 </div>
                             </li>
